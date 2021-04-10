@@ -11,7 +11,7 @@ export class ArrayEndpoint {
     constructor() {
         this.arrayController = ArrayController.getInstance();
 
-        this.arrayRouter.post('', (req: any, res: any) => {
+        this.arrayRouter.get('', (req: any, res: any) => {
             this.arrayController.appendStartOrAndEnd(req, res);
         });
     }

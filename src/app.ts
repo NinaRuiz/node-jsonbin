@@ -1,8 +1,8 @@
 import express from 'express';
 import env from 'dotenv';
 import { CountriesEndpoint } from './endpoints/CountriesEndpoint';
-import {ArrayEndpoint} from "~/src/endpoints/ArrayEndpoint";
-import {StringEndpoint} from "~/src/endpoints/StringEndpoint";
+import {ArrayEndpoint} from "./endpoints/ArrayEndpoint";
+import {StringEndpoint} from "./endpoints/StringEndpoint";
 
 class App {
     public app: express.Application = express();
@@ -23,12 +23,12 @@ class App {
         this.app.use(express.json());
 
         this.app.use('/countries', this.countriesEndpoint.countriesRouter);
-        this.app.use('/reverse', this.arrayEndpoint.arrayRouter);
-        this.app.use('/append', this.stringEndpoint.stringRouter);
+        this.app.use('/append', this.arrayEndpoint.arrayRouter);
+        this.app.use('/reverse', this.stringEndpoint.stringRouter);
 
     }
 }
 
-new App().app.listen(8080, () => {
-    return console.log('server is listening on port 8080')
+new App().app.listen(process.env.PORT || 8080, () => {
+    return console.log('server is listening on port ' + process.env.PORT || 8080);
 });

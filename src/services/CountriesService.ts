@@ -1,9 +1,10 @@
+const xhr = require('xmlhttprequest');
 
 export class CountriesService {
 
     private static countriesService: CountriesService;
 
-    xmlhttprequest = new XMLHttpRequest();
+    xmlhttprequest = new xhr.XMLHttpRequest();
 
     getAll(req: any, res: any) {
 
