@@ -1,5 +1,6 @@
 import {ExpressMocks} from "../mocks/ExpressMocks";
 import {StringService} from "./StringService";
+import {ArrayEndpoint} from "../endpoints/ArrayEndpoint";
 
 describe('StringService', () => {
 
@@ -41,5 +42,10 @@ describe('StringService', () => {
             data: 'tsET'
         });
 
+    });
+
+    it ('should getInstance return an instance of StringService', () => {
+        const returnedValue = StringService.getInstance();
+        expect(returnedValue).toBeInstanceOf(StringService);
     });
 });

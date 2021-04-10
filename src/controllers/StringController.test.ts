@@ -1,5 +1,6 @@
 import {ExpressMocks} from "../mocks/ExpressMocks";
 import {StringController} from "./StringController";
+import {CountriesEndpoint} from "../endpoints/CountriesEndpoint";
 
 describe('CountriesController', () => {
     const expressMocks = ExpressMocks.getInstance();
@@ -23,6 +24,11 @@ describe('CountriesController', () => {
         spyOn(stringController, 'returnReverseString').and.callThrough();
         stringController.returnReverseString(req, res);
         expect(stringController.returnReverseString).toBeCalled();
+    });
+
+    it ('should getInstance return an instance of StringController', () => {
+        const returnedValue = StringController.getInstance();
+        expect(returnedValue).toBeInstanceOf(StringController);
     });
 
 });

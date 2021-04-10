@@ -1,5 +1,6 @@
 import {ArrayService} from "./ArrayService";
 import {ExpressMocks} from "../mocks/ExpressMocks";
+import {ArrayEndpoint} from "../endpoints/ArrayEndpoint";
 
 describe('ArrayService', () => {
 
@@ -68,6 +69,11 @@ describe('ArrayService', () => {
             status: 'ERROR',
             data: 'There is not a simple array on the enviroment.'
         });
+    });
+
+    it ('should getInstance return an instance of arrayEndpoint', () => {
+        const returnedValue = ArrayService.getInstance();
+        expect(returnedValue).toBeInstanceOf(ArrayService);
     });
 
 });

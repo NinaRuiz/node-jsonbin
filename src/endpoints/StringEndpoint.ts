@@ -1,5 +1,5 @@
 import express from "express";
-import {StringController} from "~/src/controllers/StringController";
+import {StringController} from "./../controllers/StringController";
 
 export class StringEndpoint {
 

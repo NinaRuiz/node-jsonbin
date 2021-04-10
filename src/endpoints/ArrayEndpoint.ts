@@ -1,5 +1,5 @@
 import express from "express";
-import {ArrayController} from "~/src/controllers/ArrayController";
+import {ArrayController} from "./../controllers/ArrayController";
 
 export class ArrayEndpoint {
 

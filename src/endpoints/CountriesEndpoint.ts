@@ -1,5 +1,5 @@
 import express from 'express';
-import {CountriesController} from "~/src/controllers/CountriesController";
+import {CountriesController} from "./../controllers/CountriesController";
 
 export class CountriesEndpoint {
 

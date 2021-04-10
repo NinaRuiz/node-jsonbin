@@ -1,6 +1,7 @@
 import {ExpressMocks} from "../mocks/ExpressMocks";
 import {CountriesService} from "./CountriesService";
 import {XMLHttpRequestMock} from "../mocks/XMLHttpRequestMock";
+import {ArrayEndpoint} from "../endpoints/ArrayEndpoint";
 
 describe('CountriesService', () => {
 
@@ -132,5 +133,10 @@ describe('CountriesService', () => {
         countriesService.xmlhttprequest = xMLHttpRequestMock.createMockXHR(response);
         await countriesService.getAll(req, res);
         expect(res.send).toBeCalled();
+    });
+
+    it ('should getInstance return an instance of CountriesService', () => {
+        const returnedValue = CountriesService.getInstance();
+        expect(returnedValue).toBeInstanceOf(CountriesService);
     });
 })
