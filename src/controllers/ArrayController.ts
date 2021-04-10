@@ -1,4 +1,4 @@
-import {ArrayService} from "~/src/services/ArrayService";
+import {ArrayService} from './../services/ArrayService';
 
 export class ArrayController {
 
