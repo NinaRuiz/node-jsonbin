@@ -1,8 +1,8 @@
 import express from 'express';
 import env from 'dotenv';
 import { CountriesEndpoint } from './endpoints/CountriesEndpoint';
-import {ArrayEndpoint} from "~/endpoints/ArrayEndpoint";
-import {StringEndpoint} from "~/endpoints/StringEndpoint";
+import {ArrayEndpoint} from "~/src/endpoints/ArrayEndpoint";
+import {StringEndpoint} from "~/src/endpoints/StringEndpoint";
 
 class App {
     public app: express.Application = express();

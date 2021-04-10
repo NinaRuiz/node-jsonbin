@@ -1,4 +1,4 @@
-import {CountriesService} from "~/services/CountriesService";
+import {CountriesService} from "~/src/services/CountriesService";
 
 export class CountriesController {
 

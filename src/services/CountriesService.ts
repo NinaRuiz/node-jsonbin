@@ -3,7 +3,7 @@ export class CountriesService {
 
     private static countriesService: CountriesService;
 
-    xmlhttprequest: XMLHttpRequest = new XMLHttpRequest();
+    xmlhttprequest = new XMLHttpRequest();
 
     getAll(req: any, res: any) {
 

@@ -1,4 +1,4 @@
-import {StringService} from "~/services/StringService";
+import {StringService} from "~/src/services/StringService";
 
 export class StringController {
 
