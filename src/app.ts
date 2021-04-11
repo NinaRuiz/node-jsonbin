@@ -29,6 +29,6 @@ class App {
     }
 }
 
-new App().app.listen(process.env.PORT || 8080, () => {
+new App().app.listen(parseInt(process.env.PORT,0) || 8080, process.env.HOSTNAME, () => {
     return console.log('server is listening on port ' + process.env.PORT || 8080);
 });
