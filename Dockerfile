@@ -1,5 +1,3 @@
-## this is the stage one , also know as the build step
-
 FROM node:14
 
 WORKDIR /usr/src/app
