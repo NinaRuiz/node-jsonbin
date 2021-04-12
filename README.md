@@ -16,6 +16,8 @@ Run jest tests:
 
 `jest`
 
+Test coverage is over 80% as is recommended on good practices.
+
 # Rest API
 
 On the project, there's a postman collection to easily
