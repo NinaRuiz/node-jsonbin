@@ -18,6 +18,11 @@ Run jest tests:
 
 # Rest API
 
+On the project, there's a postman collection to easily
+make the different requests.
+
+`Node-JsonBin.postman_collection.json`
+
 Rest API endpoints are describe below:
 
 ## Get countries

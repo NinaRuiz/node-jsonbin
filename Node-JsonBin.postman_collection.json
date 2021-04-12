@@ -1,0 +1,98 @@
+{
+	"info": {
+		"_postman_id": "8e9af64c-fe72-4bba-9a78-e8da60b2edbb",
+		"name": "Node-JsonBin",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8080/countries",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer d2f2c21e-2a60-36a9-829b-8427f99292de",
+						"type": "text"
+					},
+					{
+						"key": "SSO-JWT",
+						"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJRMS10V3JNN1FoUUZUclJGbjRudjJCZTFsMVVzTHNTRzIxck5KSGFOblAwIn0.eyJqdGkiOiIxZTQ4YWY5Zi03YTFkLTRiNTYtYmQ4Ny1mN2MxNzcxNmI2MzQiLCJleHAiOjE2MTYxNDU5OTMsIm5iZiI6MCwiaWF0IjoxNjE2MTQ1NjkzLCJpc3MiOiJodHRwOi8va2V5Y2xvYWstcHJlLmhpbGxvZ3kuY29tOjgwODAvYXV0aC9yZWFsbXMvdmFlc2EiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiNWVlM2I2NzUtNGE1Mi00MWVkLThkNmQtNDhlZjY5OGJmOGRmIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoidmFlc2EiLCJub25jZSI6ImRlNzljY2JlLWRmYjYtNGYyYS04MDA0LWU3ZDRiODRkMDgzZCIsImF1dGhfdGltZSI6MTYxNjE0MjczMSwic2Vzc2lvbl9zdGF0ZSI6Ijk5ZjY3NjVkLTJlMzItNDZmYy04MDFhLWU5YjhhNjZhZjI1NyIsImFjciI6IjAiLCJhbGxvd2VkLW9yaWdpbnMiOlsiKiJdLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoib3BlbmlkIHByb2ZpbGUgZW1haWwiLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwicHJlZmVycmVkX3VzZXJuYW1lIjoid2poYzFrdSIsImVtYWlsIjoiYWRtaW5AYWRtaW4uY29tIn0.ZeLmEiptQD2gsbumu42P8RLVbWu8m3MCjhi28HpPsWmuSd6yH4hJQRYx_9_DQErJOy8YO9JccF-m8kUz4HYrVwbwW7PF36dQJbBHnDrLG9l8irQH-yaY_NExtXNL4okxLK-d2gxbnxnvRDl-rxGhcICOyfpnpPQx5mHiV6w_6ZxR2MBgWMQ5L6q2JVe0NltBChvehgAjEtdh2qwANbO48YtCVKBHkjLMLgkN1ydAV3_X2oCVYV2npYY-Qh4KPG_CSGyZJbptnq72iU0GkROoyu6FN88X1BaWB_70mqoqhPTZB6auR2rKFB2dSWG2f3WfPpqBpdYvyLur4xdq9WvgOg",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/countries?filter=and&order=desc",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"countries"
+					],
+					"query": [
+						{
+							"key": "filter",
+							"value": "and"
+						},
+						{
+							"key": "order",
+							"value": "desc"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/reverse/hello",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/reverse/hello",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"reverse",
+						"hello"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/append?start=hello&end=bye",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/append?start=hello&end=bye",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"append"
+					],
+					"query": [
+						{
+							"key": "start",
+							"value": "hello"
+						},
+						{
+							"key": "end",
+							"value": "bye"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
