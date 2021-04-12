@@ -1,8 +1,9 @@
+import { Service } from "typedi";
+
 const xhr = require('xmlhttprequest');
 
+@Service()
 export class CountriesService {
-
-    private static countriesService: CountriesService;
 
     xmlhttprequest = new xhr.XMLHttpRequest();
 
@@ -12,7 +13,7 @@ export class CountriesService {
             if (this.readyState === 4) {
 
                 let responseArray = JSON.parse(this.responseText);
-                if (req.query.filter) {
+                if (req.query?.filter) {
                     if (parseInt(req.query.filter.toString())){
                         res.send({
                             status: 'ERROR',
@@ -24,7 +25,7 @@ export class CountriesService {
                     }
                 }
 
-                if (req.query.order) {
+                if (req.query?.order) {
                     if (req.query.order === 'asc') {
                         responseArray.sort((a: any, b: any) => {
                             return a.vat - b.vat;
@@ -63,12 +64,5 @@ export class CountriesService {
                 }
             });
         return newArray;
-    }
-
-    public static getInstance() {
-        if (!CountriesService.countriesService) {
-            CountriesService.countriesService = new CountriesService();
-        }
-        return CountriesService.countriesService;
     }
 }

@@ -1,14 +1,17 @@
 import {ArrayService} from "./ArrayService";
 import {ExpressMocks} from "../mocks/ExpressMocks";
-import {ArrayEndpoint} from "../endpoints/ArrayEndpoint";
+import Container from "typedi";
+
+require('reflect-metadata');
 
 describe('ArrayService', () => {
 
     const expressMocks = ExpressMocks.getInstance();
-    const arrayService = new ArrayService();
+    let arrayService: ArrayService;
 
     beforeAll(() => {
         process.env.NODE_ENV = 'test';
+        arrayService = Container.get(ArrayService);
     })
 
     it('should arrayService', () => {
@@ -72,7 +75,7 @@ describe('ArrayService', () => {
     });
 
     it ('should getInstance return an instance of arrayEndpoint', () => {
-        const returnedValue = ArrayService.getInstance();
+        const returnedValue = Container.get(ArrayService);
         expect(returnedValue).toBeInstanceOf(ArrayService);
     });
 

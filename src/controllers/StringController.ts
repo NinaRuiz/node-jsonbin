@@ -1,23 +1,13 @@
-import {StringService} from "./../services/StringService";
+import { Service } from "typedi";
+import { StringService } from "./../services/StringService";
 
+@Service()
 export class StringController {
 
-    private static stringController: StringController;
-
-    stringService: StringService
-
-    constructor() {
-        this.stringService = StringService.getInstance();
+    constructor(public stringService: StringService) {
     }
 
-    returnReverseString(req: any, res: any) {
+    public returnReverseString(req: any, res: any) {
         this.stringService.reverseString(req, res);
-    }
-
-    public static getInstance(): StringController {
-        if (!StringController.stringController) {
-            StringController.stringController = new StringController();
-        }
-        return StringController.stringController;
     }
 }

@@ -1,23 +1,13 @@
-import {ArrayService} from './../services/ArrayService';
+import { Service } from "typedi";
+import {ArrayService} from "./../services/ArrayService";
 
+@Service()
 export class ArrayController {
 
-    private static arrayController: ArrayController;
-
-    arrayService: ArrayService;
-
-    constructor() {
-        this.arrayService = ArrayService.getInstance();
+    constructor(public arrayService: ArrayService) {
     }
 
-    appendStartOrAndEnd(req: any, res: any) {
-        this.arrayService.appendStartOrAndEnd(req,res);
-    }
-
-    public static getInstance(): ArrayController {
-        if (!ArrayController.arrayController) {
-            ArrayController.arrayController = new ArrayController();
-        }
-        return ArrayController.arrayController;
+    public appendStartOrAndEnd(req: any, res: any) {
+        this.arrayService.appendStartOrAndEnd(req, res);
     }
 }

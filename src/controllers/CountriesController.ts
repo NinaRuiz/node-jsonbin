@@ -1,25 +1,14 @@
+import { Service } from "typedi";
 import {CountriesService} from "./../services/CountriesService";
 
+@Service()
 export class CountriesController {
 
-    private static countriesController: CountriesController;
-    countriesService: CountriesService
-
-
-    constructor(
-    ) {
-        this.countriesService = CountriesService.getInstance();
+    constructor(public countriesService: CountriesService) {
     }
 
     public getCountries(req: any, res: any) {
         this.countriesService.getAll(req, res)
-    }
-
-    public static getInstance() {
-        if (!CountriesController.countriesController) {
-            CountriesController.countriesController = new CountriesController();
-        }
-        return CountriesController.countriesController;
     }
 
 }

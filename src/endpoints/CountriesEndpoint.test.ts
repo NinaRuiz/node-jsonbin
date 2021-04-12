@@ -1,12 +1,15 @@
+import Container from "typedi";
 import {CountriesEndpoint} from "./CountriesEndpoint";
-import {ArrayEndpoint} from "./ArrayEndpoint";
+
+require('reflect-metadata');
 
 describe('CountriesEndpoint', () => {
 
-    const countriesEndpoint = new CountriesEndpoint();
+    let countriesEndpoint: CountriesEndpoint;
 
     beforeAll(() => {
         process.env.NODE_ENV = 'test';
+        countriesEndpoint = Container.get(CountriesEndpoint);
     })
 
     it('should countriesEndpoint', () => {
@@ -14,7 +17,7 @@ describe('CountriesEndpoint', () => {
     });
 
     it ('should getInstance return an instance of countriesEndpoint', () => {
-        const returnedValue = CountriesEndpoint.getInstance();
+        const returnedValue = Container.get(CountriesEndpoint);
         expect(returnedValue).toBeInstanceOf(CountriesEndpoint);
     });
 

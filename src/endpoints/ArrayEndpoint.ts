@@ -1,25 +1,15 @@
 import express from "express";
-import {ArrayController} from "./../controllers/ArrayController";
+import { Service } from "typedi";
+import { ArrayController } from "./../controllers/ArrayController";
 
+@Service()
 export class ArrayEndpoint {
 
-    private static arrayEndpoint: ArrayEndpoint;
-
     public arrayRouter = express.Router();
-    arrayController: ArrayController;
 
-    constructor() {
-        this.arrayController = ArrayController.getInstance();
-
+    constructor(private arrayController: ArrayController) {
         this.arrayRouter.get('', (req: any, res: any) => {
             this.arrayController.appendStartOrAndEnd(req, res);
         });
-    }
-
-    public static getInstance(): ArrayEndpoint {
-        if(!ArrayEndpoint.arrayEndpoint) {
-            ArrayEndpoint.arrayEndpoint = new ArrayEndpoint();
-        }
-        return ArrayEndpoint.arrayEndpoint;
     }
 }

@@ -1,14 +1,17 @@
+import Container from "typedi";
 import {ExpressMocks} from "../mocks/ExpressMocks";
 import {StringService} from "./StringService";
-import {ArrayEndpoint} from "../endpoints/ArrayEndpoint";
+
+require('reflect-metadata');
 
 describe('StringService', () => {
 
     const expressMocks = ExpressMocks.getInstance();
-    const stringService = new StringService();
+    let stringService: StringService;
 
     beforeAll(() => {
         process.env.NODE_ENV = 'test';
+        stringService = Container.get(StringService);
     });
 
     it('should stringService', () => {
@@ -45,7 +48,7 @@ describe('StringService', () => {
     });
 
     it ('should getInstance return an instance of StringService', () => {
-        const returnedValue = StringService.getInstance();
+        const returnedValue = Container.get(StringService);
         expect(returnedValue).toBeInstanceOf(StringService);
     });
 });

@@ -1,9 +1,9 @@
+import { Service } from "typedi";
 
+@Service()
 export class ArrayService {
 
-    private static arrayService: ArrayService;
-
-    appendStartOrAndEnd(req: any, res: any) {
+    public appendStartOrAndEnd(req: any, res: any) {
         if (process.env.SIMPLE_ARRAY) {
             const simpleArray: string[] = JSON.parse(process.env.SIMPLE_ARRAY);
             if (req.query.start) {
@@ -24,12 +24,4 @@ export class ArrayService {
         }
 
     }
-
-    public static getInstance() {
-        if (!ArrayService.arrayService) {
-            ArrayService.arrayService = new ArrayService();
-        }
-        return ArrayService.arrayService;
-    }
-
 }

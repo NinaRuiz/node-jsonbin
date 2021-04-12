@@ -1,13 +1,15 @@
 import {ExpressMocks} from "../mocks/ExpressMocks";
 import {CountriesService} from "./CountriesService";
 import {XMLHttpRequestMock} from "../mocks/XMLHttpRequestMock";
-import {ArrayEndpoint} from "../endpoints/ArrayEndpoint";
+import Container from "typedi";
+
+require('reflect-metadata');
 
 describe('CountriesService', () => {
 
     const expressMocks = ExpressMocks.getInstance();
     const xMLHttpRequestMock = XMLHttpRequestMock.getInstance();
-    const countriesService = new CountriesService();
+    let countriesService: CountriesService;
 
     const response = [{"country": "Austria", "code": "AT", "vat": 20}, {
         "country": "Belgium",
@@ -66,6 +68,7 @@ describe('CountriesService', () => {
 
     beforeAll(() => {
         process.env.NODE_ENV = 'test';
+        countriesService = Container.get(CountriesService);
     });
 
     it('should countriesService', () => {
@@ -136,7 +139,7 @@ describe('CountriesService', () => {
     });
 
     it ('should getInstance return an instance of CountriesService', () => {
-        const returnedValue = CountriesService.getInstance();
+        const returnedValue = Container.get(CountriesService);
         expect(returnedValue).toBeInstanceOf(CountriesService);
     });
 })

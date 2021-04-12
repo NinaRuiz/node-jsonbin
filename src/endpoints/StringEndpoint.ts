@@ -1,28 +1,16 @@
 import express from "express";
-import {StringController} from "./../controllers/StringController";
+import { Service } from "typedi";
+import { StringController } from "./../controllers/StringController";
 
+@Service()
 export class StringEndpoint {
-
-    private static stringEndpoint: StringEndpoint;
 
     public stringRouter = express.Router();
 
-    stringController: StringController
-
-    constructor() {
-        this.stringController = StringController.getInstance();
-
+    constructor(private stringController: StringController) {
         this.stringRouter.get('/:word', (req: any, res: any) => {
             this.stringController.returnReverseString(req, res);
         });
     }
-
-    public static getInstance(): StringEndpoint {
-        if (!StringEndpoint.stringEndpoint) {
-            StringEndpoint.stringEndpoint = new StringEndpoint();
-        }
-        return StringEndpoint.stringEndpoint;
-    }
-
 
 }

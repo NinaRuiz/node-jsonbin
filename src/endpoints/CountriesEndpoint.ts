@@ -1,26 +1,16 @@
 import express from 'express';
+import { Service } from 'typedi';
 import {CountriesController} from "./../controllers/CountriesController";
 
+@Service()
 export class CountriesEndpoint {
 
-    private static countriesEndpoint: CountriesEndpoint;
-
     public countriesRouter = express.Router();
-    private countriesController;
 
-    constructor() {
-        this.countriesController = CountriesController.getInstance();
-
+    constructor(private countriesController: CountriesController) {
         this.countriesRouter.get('/', (req: any, res: any) => {
             this.countriesController.getCountries(req, res);
         });
-    }
-
-    public static getInstance(): CountriesEndpoint {
-        if (!CountriesEndpoint.countriesEndpoint) {
-            CountriesEndpoint.countriesEndpoint = new CountriesEndpoint();
-        }
-        return CountriesEndpoint.countriesEndpoint;
     }
 
 }

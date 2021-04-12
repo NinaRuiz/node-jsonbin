@@ -1,12 +1,15 @@
+import { Container } from 'typedi';
 import {StringEndpoint} from "./StringEndpoint";
-import {ArrayEndpoint} from "./ArrayEndpoint";
+
+require('reflect-metadata');
 
 describe('CountriesEndpoint', () => {
 
-    const stringEndpoint = new StringEndpoint();
+    let stringEndpoint: StringEndpoint;
 
     beforeAll(() => {
         process.env.NODE_ENV = 'test';
+        stringEndpoint = Container.get(StringEndpoint);
     })
 
     it('should stringEndpoint', () => {
@@ -14,7 +17,7 @@ describe('CountriesEndpoint', () => {
     });
 
     it ('should getInstance return an instance of stringEndpoint', () => {
-        const returnedValue = StringEndpoint.getInstance();
+        const returnedValue = Container.get(StringEndpoint);
         expect(returnedValue).toBeInstanceOf(StringEndpoint);
     });
 

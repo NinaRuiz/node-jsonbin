@@ -1,13 +1,18 @@
+import { StringService } from './../services/StringService';
+import { Container } from 'typedi';
 import {ExpressMocks} from "../mocks/ExpressMocks";
 import {StringController} from "./StringController";
-import {CountriesEndpoint} from "../endpoints/CountriesEndpoint";
+
+require('reflect-metadata');
 
 describe('CountriesController', () => {
     const expressMocks = ExpressMocks.getInstance();
-    const stringController = new StringController();
+    let stringController: StringController;
 
     beforeAll(() => {
         process.env.NODE_ENV = 'test';
+        stringController = Container.get(StringController);
+        stringController.stringService = Container.get(StringService);
     })
 
     it('should stringController', () => {
@@ -27,7 +32,7 @@ describe('CountriesController', () => {
     });
 
     it ('should getInstance return an instance of StringController', () => {
-        const returnedValue = StringController.getInstance();
+        const returnedValue = Container.get(StringController);
         expect(returnedValue).toBeInstanceOf(StringController);
     });
 
