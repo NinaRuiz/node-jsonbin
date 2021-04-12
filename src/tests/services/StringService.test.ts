@@ -1,6 +1,6 @@
 import Container from "typedi";
 import {ExpressMocks} from "../mocks/ExpressMocks";
-import {StringService} from "./StringService";
+import {StringService} from "../../services/StringService";
 
 require('reflect-metadata');
 

@@ -1,15 +1,15 @@
 import Container from "typedi";
-import {CountriesEndpoint} from "./CountriesEndpoint";
+import {CountriesController} from "../../controllers/CountriesController";
 
 require('reflect-metadata');
 
 describe('CountriesEndpoint', () => {
 
-    let countriesEndpoint: CountriesEndpoint;
+    let countriesEndpoint: CountriesController;
 
     beforeAll(() => {
         process.env.NODE_ENV = 'test';
-        countriesEndpoint = Container.get(CountriesEndpoint);
+        countriesEndpoint = Container.get(CountriesController);
     })
 
     it('should countriesEndpoint', () => {
@@ -17,8 +17,8 @@ describe('CountriesEndpoint', () => {
     });
 
     it ('should getInstance return an instance of countriesEndpoint', () => {
-        const returnedValue = Container.get(CountriesEndpoint);
-        expect(returnedValue).toBeInstanceOf(CountriesEndpoint);
+        const returnedValue = Container.get(CountriesController);
+        expect(returnedValue).toBeInstanceOf(CountriesController);
     });
 
 });

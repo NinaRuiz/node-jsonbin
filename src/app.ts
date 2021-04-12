@@ -3,9 +3,9 @@ import express from "express";
 import log4js from "log4js";
 import "reflect-metadata";
 import Container from "typedi";
-import {ArrayEndpoint} from "./endpoints/ArrayEndpoint";
-import { CountriesEndpoint } from "./endpoints/CountriesEndpoint";
-import {StringEndpoint} from "./endpoints/StringEndpoint";
+import {ArrayController} from "./controllers/ArrayController";
+import { CountriesController } from "./controllers/CountriesController";
+import {StringController} from "./controllers/StringController";
 
 const logger = log4js.getLogger("server.js");
 logger.level = "all";
@@ -20,9 +20,9 @@ class App {
 
         this.app.use(express.json());
 
-        this.app.use("/countries", Container.get(CountriesEndpoint).countriesRouter);
-        this.app.use("/append", Container.get(ArrayEndpoint).arrayRouter);
-        this.app.use("/reverse", Container.get(StringEndpoint).stringRouter);
+        this.app.use("/countries", Container.get(CountriesController).getRouter());
+        this.app.use("/append", Container.get(ArrayController).getRouter());
+        this.app.use("/reverse", Container.get(StringController).getRouter());
 
     }
 }

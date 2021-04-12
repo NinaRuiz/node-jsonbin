@@ -1,5 +1,5 @@
 import {ExpressMocks} from "../mocks/ExpressMocks";
-import {CountriesService} from "./CountriesService";
+import {CountriesService} from "../../services/CountriesService";
 import {XMLHttpRequestMock} from "../mocks/XMLHttpRequestMock";
 import Container from "typedi";
 

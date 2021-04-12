@@ -1,15 +1,15 @@
 import { Container } from 'typedi';
-import {StringEndpoint} from "./StringEndpoint";
+import {StringController} from "../../controllers/StringController";
 
 require('reflect-metadata');
 
 describe('CountriesEndpoint', () => {
 
-    let stringEndpoint: StringEndpoint;
+    let stringEndpoint: StringController;
 
     beforeAll(() => {
         process.env.NODE_ENV = 'test';
-        stringEndpoint = Container.get(StringEndpoint);
+        stringEndpoint = Container.get(StringController);
     })
 
     it('should stringEndpoint', () => {
@@ -17,8 +17,8 @@ describe('CountriesEndpoint', () => {
     });
 
     it ('should getInstance return an instance of stringEndpoint', () => {
-        const returnedValue = Container.get(StringEndpoint);
-        expect(returnedValue).toBeInstanceOf(StringEndpoint);
+        const returnedValue = Container.get(StringController);
+        expect(returnedValue).toBeInstanceOf(StringController);
     });
 
 });

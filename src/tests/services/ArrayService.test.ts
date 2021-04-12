@@ -1,4 +1,4 @@
-import {ArrayService} from "./ArrayService";
+import {ArrayService} from "../../services/ArrayService";
 import {ExpressMocks} from "../mocks/ExpressMocks";
 import Container from "typedi";
 

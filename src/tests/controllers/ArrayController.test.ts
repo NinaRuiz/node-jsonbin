@@ -1,15 +1,15 @@
 import Container from "typedi";
-import {ArrayEndpoint} from "./ArrayEndpoint";
+import {ArrayController} from "../../controllers/ArrayController";
 
 require('reflect-metadata');
 
 describe('ArrayEndpoint', () => {
 
-    let arrayEndpoint: ArrayEndpoint;
+    let arrayEndpoint: ArrayController;
 
     beforeAll(() => {
         process.env.NODE_ENV = 'test';
-        arrayEndpoint = Container.get(ArrayEndpoint);
+        arrayEndpoint = Container.get(ArrayController);
     })
 
     it('should arrayEndpoint', () => {
@@ -17,8 +17,8 @@ describe('ArrayEndpoint', () => {
     });
 
     it ('should getInstance return an instance of arrayEndpoint', () => {
-        const returnedValue = Container.get(ArrayEndpoint);
-        expect(returnedValue).toBeInstanceOf(ArrayEndpoint);
+        const returnedValue = Container.get(ArrayController);
+        expect(returnedValue).toBeInstanceOf(ArrayController);
     });
 
 });
